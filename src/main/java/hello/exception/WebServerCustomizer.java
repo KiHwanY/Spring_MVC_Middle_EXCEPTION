@@ -18,4 +18,10 @@ public class WebServerCustomizer implements WebServerFactoryCustomizer<Configura
 
         factory.addErrorPages(errorPage404, errorPage500, errorPageEx);
     }
+
+    /*
+    *   WebServerCustomizer가 다시 사용되도록 하기 위해 @Component 애노테이션에 있는 주석을 풀자
+    *   이제 WAS에 예외가 전달되거나, response.sendError()가 호출되면 위에 등록한 예외 페이지 경로가 호출된다.
+    *
+    * */
 }

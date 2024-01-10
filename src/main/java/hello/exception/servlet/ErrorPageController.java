@@ -52,6 +52,18 @@ public class ErrorPageController {
 
         Integer statusCode = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         return new ResponseEntity<>(result, HttpStatus.valueOf(statusCode));
+
+        /*
+        * produces = MediaType.APPLICATION.JSON_VALUE 의 뜻은 클라이언트가 요청하는 HTTP Header의 Accept의 값이 application/json일 때
+        * 해당 메서드가 호출된다는 것이다.
+        *
+        * 결국 클라이언트가 받고 싶은 미디어 타입이 json 이면 이 컨트롤러의 메서드가 호출된다.
+        *
+        * 응답 데이터를 위해서 Map을 만들고 status,message key에 값을 할당했다.
+        * Jackson 라이브러리는 Map을 JSON 구조로 변환할 수 있다.
+        *
+        * ResponseEntity 를 사용해서 응답하기 때문에 메시지 컨버터가 동작하면서 클라이언트에 JSON 이 반환된다.
+        * */
     }
 
     private void printErrorInfo(HttpServletRequest request) {
