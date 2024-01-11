@@ -31,6 +31,13 @@ public class ApiExceptionController {
 
         return new MemberDto(id, "hello " + id);
     }
+//      [실행해보면 상태 코드가 500인 것을 확인할 수 있다.]
+//    {
+//        "status": 500,
+//            "error": "Internal Server Error",
+//            "exception": "java.lang.IllegalArgumentException",
+//            "path": "/api/members/bad"
+//    }
 
     @GetMapping("/api/response-status-ex1")
     public String responseStatusEx1() {
